@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  LucideIcon,
   ShieldCheck,
   Store,
   Users,
@@ -25,7 +26,7 @@ export default function App() {
   interface NavItem {
     id: 'overview' | 'shops' | 'orders' | 'users' | 'payouts' | 'settings';
     label: string;
-    icon: React.ComponentType<{ size?: number; color?: string }>;
+    icon: LucideIcon;
     badge?: string;
   }
 
