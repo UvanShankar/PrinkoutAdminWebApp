@@ -22,14 +22,21 @@ import {
 export default function App() {
   const [activeTab, setActiveTab] = useState<'overview' | 'shops' | 'orders' | 'users' | 'payouts' | 'settings'>('overview');
 
-  const navItems = [
+  interface NavItem {
+    id: 'overview' | 'shops' | 'orders' | 'users' | 'payouts' | 'settings';
+    label: string;
+    icon: React.ComponentType<{ size?: number; color?: string }>;
+    badge?: string;
+  }
+
+  const navItems: NavItem[] = [
     { id: 'overview', label: 'Overview', icon: Activity },
     { id: 'shops', label: 'Shop Approvals', icon: Store, badge: '3 Pending' },
     { id: 'orders', label: 'Live Orders', icon: Printer },
     { id: 'users', label: 'User Directory', icon: Users },
     { id: 'payouts', label: 'Settlements & Payouts', icon: CreditCard },
     { id: 'settings', label: 'System Configuration', icon: Settings },
-  ] as const;
+  ];
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#0B0D11', color: '#F3F4F6' }}>
